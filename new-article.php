@@ -4,7 +4,7 @@ include 'sidebar.php'; ?>
 <!-- Main pages -->
 
 <div class="col-lg-9 my-5">
-    <form class="w-50">
+    <form class="w-75">
         <div class="form-group">
             <label for="title">Title</label>
             <input type="text" class="title form-control" id="title" aria-describedby="titlehelp">
