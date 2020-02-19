@@ -1,0 +1,54 @@
+  <!-- main page  -->
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Date</th>
+            <th scope="col">Edit/Delete</th>
+            <th scope="col"> <a type="button" class="btn btn-success" href="add-article.php"> + Ajouter un article</a> </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <th class="row justify-content-around">
+              <div> 1</div> <a style=" display:block ;width:50px" href="single-article.php">
+                <img class="w-100" src="./img/1.jpg" alt=""></a>
+            </th>
+            <td scope="row">Article1</td>
+            <td>20/12/2020</td>
+            <td>
+              <a type="button" href="single-article.php" class="btn btn-primary">Voir</a>
+              <a type="button" href="edit-article.php" class="btn btn-warning">Edit</a>
+              <a type="button" class="btn btn-danger">Delete</a>
+            </td>
+
+          </tr>
+          <tr>
+
+            <th class="row justify-content-around">
+              <div> 2</div> <a href="single-article.php" style=" width:50px"><img class="w-100" src="./img/1.jpg" alt=""></a>
+            </th>
+            <td>Article2</td>
+            <td>20/12/2020</td>
+            <td>
+              <a type="button" href="single-article.php" class="btn btn-primary">Voir</a>
+              <a type="button" href="edit-article.php" class="btn btn-warning">Edit</a>
+              <a type="button" class="btn btn-danger">Delete</a>
+            </td>
+          </tr>
+          <tr>
+            <th class="row justify-content-around">
+              <div> 3</div> <a style=" display:block ;width:50px" href="single-article.php">
+                <img class="w-100" src="./img/1.jpg" alt=""></a>
+            </th>
+            <td>Article2</td>
+            <td>20/12/2020</td>
+            <td>
+              <a type="button" href="single-article.php" class="btn btn-primary">Voir</a>
+              <a type="button" href="edit-article.php" class="btn btn-warning">Edit</a>
+              <a type="button" class="btn btn-danger">Delete</a> </td>
+          </tr>
+        </tbody>
+      </table>
