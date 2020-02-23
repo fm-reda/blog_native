@@ -3,9 +3,11 @@ include 'demo.php';
 require 'connexion.php';
 $stmt = $conn->prepare('SELECT * FROM article,categorie,auteur where
  article.id_cat=categorie.id_cat AND 
- article.id_auteur=auteur.id_auteur');
+ article.id_auteur=auteur.id_auteur order by id_art DESC');
 $excuteIsOk = $stmt->execute();
 $articles = $stmt->fetchAll();
+
+
 ?>
 
 <div class="cont container bg-white shadow-lg p-3  ">
@@ -48,6 +50,20 @@ $articles = $stmt->fetchAll();
 
             <?php $i = 1;
             foreach ($articles as $article) :; ?>
+                <?php
+
+
+
+                $stmt2 = $conn->prepare('select count(id_com) as nb_com from commentaire where id_art=?');
+                $excuteIsOk = $stmt2->execute([$article['id_art']]);
+                $com = $stmt2->fetch();
+
+
+
+
+                // print_r($com); 
+                ?>
+
                 <tr>
                     <td><?= $i; ?></td>
                     <td style="width:100px;height:100px;"><img class="w-100 h-100" src="img/article/<?= $article['image_art'] ?>" alt=""></a></td>
@@ -59,10 +75,11 @@ $articles = $stmt->fetchAll();
                     <td>
                         <div>
                             <div>
-                                <a href="traitement-article.php?art-view-id=<?= $article['id_art'] ?>" class="btn btn-primary col-md-3"><i class="fa fa-eye" aria-hidden="true"></i>
+                                <a href="traitement-article.php?art-view-id=<?= $article['id_art'] ?>" class="btn btn-primary col-md-2"><i class="fa fa-eye" aria-hidden="true"></i>
                                 </a>
-                                <a href="update-article.php?art-update-id=<?= $article['id_art'] ?>" class="btn btn-success col-md-3"> <i class="fa fa-wrench" aria-hidden="true"></i></a>
-                                <a href="traitement-article.php?art-del-id=<?= $article['id_art'] ?>" class="btn btn-danger col-md-3"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                <a href="update-article.php?art-update-id=<?= $article['id_art'] ?>" class="btn btn-success col-md-2"> <i class="fa fa-wrench" aria-hidden="true"></i></a>
+                                <a href="traitement-article.php?art-del-id=<?= $article['id_art'] ?>" class="btn btn-danger col-md-2"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                <a href="traitement-article.php?art-com-id=<?= $article['id_art'] ?>" class="btn btn-warning col-md-3"><i class="fa fa-comment mr-1" aria-hidden="true"></i><?= $com['nb_com'] ?></a>
 
                             </div>
                         </div>

@@ -19,6 +19,10 @@
     <!-- jQuery -->
     <script src="js/jquery-3.4.1.min.js"></script>
     <style>
+        p {
+            word-break: break-all;
+        }
+
         .tgold {
             color: #c38953;
         }

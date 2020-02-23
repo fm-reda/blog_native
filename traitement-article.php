@@ -2,6 +2,7 @@
 
 
 
+
 //Ajouter une nouvelle donnee
 
 if (isset($_POST['submit-art'])) {
@@ -78,4 +79,22 @@ if (isset($_POST['update-art'])) {
     $stmt->execute([$_POST['titre'], $_POST['contenu'], $fileName, $_POST['categorie'], $_POST['auteur'], $_POST['id']]);
 
     Header("Location: back-articles.php");
+}
+
+
+//insertion commentaire par article
+if (isset($_POST['submit-com'])) {
+
+
+
+    // echo $_POST['categorie'];
+
+
+    // echo date('Y-m-d H:i:s');
+
+    $req = $conn->prepare("INSERT INTO commentaire SET nickname = ?, date_com = ?, comment = ?, id_art=?");
+    $req->execute([validation($_POST['nickname']), validation(date('Y-m-d H:i:s')), validation($_POST['coment']), validation($_POST['id_art'])]);
+    $stat = "données enrégistrées";
+    Header("Location: single-article.php?id-article=" . $_POST['id_art']);
+    exit();
 }

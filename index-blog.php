@@ -1,6 +1,7 @@
 <?php
 include 'demo.php';
 require 'connexion.php';
+
 $stmt = $conn->prepare('SELECT * FROM article,categorie,auteur where
  article.id_cat=categorie.id_cat AND 
  article.id_auteur=auteur.id_auteur order by id_art DESC');
@@ -18,29 +19,14 @@ $articles = $stmt->fetchAll();
     <?php foreach ($articles as $article) : ?>
         <div class="card col-lg-3 p-1 m-1 shadow-sm">
             <img class=" card-img-top rounded border" src="img/article/<?= $article['image_art'] ?>" alt="" width="300px" height="200px">
-            <div class="card-body bg-light">
+            <div class=" d-flex flex-column justify-content-between card-body bg-light">
+                <div>
 
-                <h1 class="card-title text-dark"><?= $article['title'] ?></h1>
+                    <h1 class="card-title text-dark"><?= $article['title'] ?></h1>
 
-                <p class="card-text h-25 text-secondary"><?= substr($article['contenu'], 0, 40) . "..."; ?></p>
-                <div id="meta-post" class="text-secondary">
-                    <span class="">
-                        <i class="fa fa-user"></i>
-                        <a class="text-secondary" href="" rel="author" title="Way2Themes">
-                            <span itemprop="name"><?= $article['nom_aut'] ?></span></a>
-                    </span>
+                    <p class="card-text text-secondary my-3"><?= substr($article['contenu'], 0, 40) . "..."; ?></p>
 
-                    <span class="">
-                        <i aria-hidden="true" class="fa fa-folder-open"></i>
-                        <a href="#" class="text-secondary" rel="tag nofollow"><?= $article['nom'] ?></a>
-
-                    </span>
-                    <span class=""><i class="fa fa-calendar-alt"><?= $article['date'] ?></i>
-
-                    </span>
-
-                </div>
-                <!-- <div class="row text-secondary">
+                    <!-- <div class="row text-secondary">
                     <span class="col-lg-4"><i class="fa fa-user-circle"><?= $article['prenom'] . " " . $article['nom_aut'] ?></i>
 
                     </span>
@@ -51,7 +37,32 @@ $articles = $stmt->fetchAll();
                         <i class="fa fa-calendar-alt"><?= $article['date'] ?></i>
                     </span>
                 </div> -->
-                <a href="single-article.php?id-article=<?= $article['id_art'] ?>" class="btn btn-dark bg-gold mt-5">Read more</a>
+
+                </div>
+                <div class="d-flex align-items-end">
+                    <div>
+                        <div id="meta-post" class="text-secondary">
+                            <span class="">
+                                <i class="fa fa-user"></i>
+                                <a class="text-secondary" href="" rel="author" title="Way2Themes">
+                                    <span itemprop="name"><?= $article['nom_aut'] ?></span></a>
+                            </span>
+
+                            <span class="">
+                                <i aria-hidden="true" class="fa fa-folder-open"></i>
+                                <a href="#" class="text-secondary" rel="tag nofollow"><?= $article['nom'] ?></a>
+
+                            </span>
+                            <i class="fa fa-calendar-alt mr-1"></i><span class=""><?= $article['date'] ?>
+
+                            </span>
+
+                        </div>
+
+                        <a href="single-article.php?id-article=<?= $article['id_art'] ?>" class=" w-50  btn btn-dark bg-gold mt-2">Read more</a>
+
+                    </div>
+                </div>
             </div>
         </div>
     <?php endforeach; ?>
