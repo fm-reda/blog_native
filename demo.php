@@ -2,8 +2,10 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"> -->
 
+    <!-- <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -13,6 +15,7 @@
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="css/style-blog.css">
     <!-- Pushy CSS -->
     <link rel="stylesheet" href="css/pushy.css">
 
@@ -111,7 +114,7 @@
                 <li class="pushy-link"><a href="back-articles.php">Article</a></li>
                 <li class="pushy-link"><a href="back-categories.php">Categorie</a></li>
                 <li class="pushy-link"><a href="back-auteurs.php">Auteur</a></li>
-                <li class="pushy-link"><a href="#">Admin</a></li>
+                <li class="pushy-link"><a href="main.php">Website</a></li>
                 <!-- <li class="pushy-submenu">
                     <button id="first-link"><a href="new-article.php"></a>Article</button>
                     <ul>

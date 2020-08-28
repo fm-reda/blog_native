@@ -11,20 +11,20 @@ $auteurs = $stmt->fetchAll();
 
 
 
-<div class="cont container bg-white shadow-lg p-3  ">
-    
+<div class="cont container bg-white shadow-lg p-3">
+
     <a class="text-decoration-none" href="new-auteur.php">
         <h2><i class="fa fa-plus my-4 text-primary fa-fw"></i>Ajout d'un auteur</h2>
     </a>
     <h1>Liste des auteurs</h1>
     <table class="table-hover">
-        <thead>
+        <thead class="bg-dark text-white">
             <tr>
                 <th scope="col">N°</th>
                 <th scope="col">Avatar</th>
                 <th scope="col">Nom</th>
                 <th scope="col">Prenom</th>
-                <th scope="col">email</th>
+                <th scope="col">Email</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
@@ -61,9 +61,9 @@ $auteurs = $stmt->fetchAll();
                     <td>
                         <div>
                             <div>
-                                <a href="traitement-auteur.php?auteur-view-id=<?= $auteur['id_auteur'] ?>" class="btn btn-primary col-md-3">View</a>
-                                <a href="update-auteur.php?auteur-update-id=<?= $auteur['id_auteur'] ?>" class="btn btn-success col-md-3">Edit</a>
-                                <a href="traitement-auteur.php?auteur-del-id=<?= $auteur['id_auteur'] ?>" class="btn btn-danger col-md-3">Delete</a>
+                                <!-- <a href="traitement-auteur.php?auteur-view-id=<?= $auteur['id_auteur'] ?>" class="btn btn-primary col-md-3"><i class="fa fa-eye" aria-hidden="true"></i></a> -->
+                                <a href="update-auteur.php?auteur-update-id=<?= $auteur['id_auteur'] ?>" class="btn btn-success col-md-5"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                                <a href="traitement-auteur.php?auteur-del-id=<?= $auteur['id_auteur'] ?>" class="btn btn-danger col-md-5"><i class="fa fa-trash" aria-hidden="true"></i></a>
 
                             </div>
                         </div>
@@ -76,5 +76,5 @@ $auteurs = $stmt->fetchAll();
     </table>
 </div>
 
-    <?php
-    include 'footer.php' ?>
+<?php
+include 'footer.php' ?>

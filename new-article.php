@@ -14,7 +14,7 @@ $categories = $stmtC->fetchAll();
 <!-- Main pages -->
 
 <!-- <div class="col-lg-9 my-5 ml-auto mr-auto"> -->
-<div class="cont container bg-white shadow-lg">
+<div class="cont container bg-white my-shadow p-3">
     <h2 class="text-center p-4">Création d'un article</h2>
     <div class="row justify-content-center mb-5">
 
@@ -32,10 +32,10 @@ $categories = $stmtC->fetchAll();
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Check me out</label>
         </div> -->
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="date">Date</label>
                 <input type="date" name="art-date" class="form-control" id="art-date">
-            </div>
+            </div> -->
             <label for="auteur">auteur</label>
             <select name="auteur" class=" form-control form-group">
                 <?php foreach ($auteurs as $auteur) :; ?>
@@ -49,7 +49,7 @@ $categories = $stmtC->fetchAll();
                 <?php endforeach; ?>
             </select>
             <div class="form-group">
-                <label for="art-image">Example file input</label>
+                <!-- <label for="art-image">Example file input</label> -->
                 <input type="file" class=" form-control-file" id="art-image" name="art-image">
             </div>
 

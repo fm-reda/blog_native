@@ -7,7 +7,7 @@
             <span></span>
             <span></span>
         </button> -->
-        <button class="m-3 px-3 menu-btn justify-content-start bg-dark">&#9776; Menu</button>
+        <button class="navbar-brand m-3 px-3 menu-btn justify-content-start text-white mr-5">&#9776; Menu</button>
 
         <!-- button right -->
         <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,8 +33,8 @@
         </style>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav navbar-nav ">
-                <a class="navbar-brand text-white" href="index-blog.php">Mon blog</a>
-
+                <a class="navbar-brand text-white" href="index-blog.php">Dashboard</a>
+<!-- 
                 <li class="nav-item active">
                     <div class="container">
                         <div class="dropdown">
@@ -50,16 +50,16 @@
                             </div>
                         </div>
                     </div>
-                </li>
+                </li> -->
 
 
 
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <form class="form-inline mt-2 mt-md-0">
                         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline border-black btn-dark  my-2 my-sm-0 " type="submit">Search</button>
                     </form>
-                </li>
+                </li> -->
 
             </ul>
         </div>

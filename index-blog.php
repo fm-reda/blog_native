@@ -1,6 +1,14 @@
 <?php
+session_start();
+if (!(isset($_SESSION['role']) && $_SESSION['role'] == "admin")) {
+    Header("Location: login.php");
+}
 include 'demo.php';
 require 'connexion.php';
+
+// print_r($_SESSION);
+
+
 
 $stmt = $conn->prepare('SELECT * FROM article,categorie,auteur where
  article.id_cat=categorie.id_cat AND 
@@ -13,20 +21,20 @@ $articles = $stmt->fetchAll();
 
 
 <!-- list-article -->
+<div class="container w-100">
+    <h1 class="tgold text-center my-5">Articles</h1>
+    <div class="row my-3 cont">
+        <?php foreach ($articles as $article) : ?>
+            <div class="card p-0 m-2 shadow-sm" style="width:350px">
+                <img class=" card-img-top rounded border" src="img/article/<?= $article['image_art'] ?>" alt="">
+                <div class=" d-flex flex-column justify-content-between card-body ">
+                    <div>
 
-<h1 class="tgold text-center my-5">Articles</h1>
-<div class="row my-3 justify-content-center cont">
-    <?php foreach ($articles as $article) : ?>
-        <div class="card col-lg-3 p-1 m-1 shadow-sm">
-            <img class=" card-img-top rounded border" src="img/article/<?= $article['image_art'] ?>" alt="" width="300px" height="200px">
-            <div class=" d-flex flex-column justify-content-between card-body bg-light">
-                <div>
+                        <h1 class="card-title text-dark"><?= $article['title'] ?></h1>
 
-                    <h1 class="card-title text-dark"><?= $article['title'] ?></h1>
+                        <p class="card-text text-secondary my-3"><?= substr($article['contenu'], 0, 40) . "..."; ?></p>
 
-                    <p class="card-text text-secondary my-3"><?= substr($article['contenu'], 0, 40) . "..."; ?></p>
-
-                    <!-- <div class="row text-secondary">
+                        <!-- <div class="row text-secondary">
                     <span class="col-lg-4"><i class="fa fa-user-circle"><?= $article['prenom'] . " " . $article['nom_aut'] ?></i>
 
                     </span>
@@ -38,35 +46,35 @@ $articles = $stmt->fetchAll();
                     </span>
                 </div> -->
 
-                </div>
-                <div class="d-flex align-items-end">
-                    <div>
-                        <div id="meta-post" class="text-secondary">
-                            <span class="">
-                                <i class="fa fa-user"></i>
-                                <a class="text-secondary" href="" rel="author" title="Way2Themes">
-                                    <span itemprop="name"><?= $article['nom_aut'] ?></span></a>
-                            </span>
+                    </div>
+                    <div class="d-flex align-items-end">
+                        <div>
+                            <div id="meta-post" class="text-secondary">
+                                <span class="">
+                                    <i class="fa fa-user"></i>
+                                    <a class="text-secondary" href="" rel="author" title="Way2Themes">
+                                        <span itemprop="name"><?= $article['nom_aut'] ?></span></a>
+                                </span>
 
-                            <span class="">
-                                <i aria-hidden="true" class="fa fa-folder-open"></i>
-                                <a href="#" class="text-secondary" rel="tag nofollow"><?= $article['nom'] ?></a>
+                                <span class="">
+                                    <i aria-hidden="true" class="fa fa-folder-open"></i>
+                                    <a href="#" class="text-secondary" rel="tag nofollow"><?= $article['nom'] ?></a>
 
-                            </span>
-                            <i class="fa fa-calendar-alt mr-1"></i><span class=""><?= $article['date'] ?>
+                                </span>
+                                <i class="fa fa-calendar-alt mr-1"></i><span class=""><?= $article['date'] ?>
 
-                            </span>
+                                </span>
+
+                            </div>
+
+                            <a href="single-article.php?id-article=<?= $article['id_art'] ?>" class="  btn btn-primary mx-auto mt-2">Read more</a>
 
                         </div>
-
-                        <a href="single-article.php?id-article=<?= $article['id_art'] ?>" class=" w-50  btn btn-dark bg-gold mt-2">Read more</a>
-
                     </div>
                 </div>
             </div>
-        </div>
-    <?php endforeach; ?>
-    <!-- <div class="card col-lg-3 p-3 m-3" style="width: 18rem;">
+        <?php endforeach; ?>
+        <!-- <div class="card col-lg-3 p-3 m-3" style="width: 18rem;">
         <img class="card-img-top" src="http://placehold.jp/150x80.png" alt="">
         <div class="card-body">
             <h5 class="card-title">Title</h5>
@@ -82,6 +90,7 @@ $articles = $stmt->fetchAll();
             <a href="single-article.php" class="btn btn-primary">Read more</a>
         </div>
     </div> -->
+    </div>
 </div>
 
 

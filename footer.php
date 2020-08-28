@@ -4,21 +4,21 @@ strap JS -->
 <footer>
 	<div class="bg-dark text-white p-5 mt-5">
 		<div class="text-center"><a href="#" class="text-white ">Back to top</a></div>
-		<div class="row ">
 
-
-		</div>
-		<div class="row justify-content-center bottom-footer text-center-mobile">
-			<div class="col-lg-10">
+		<div class="">
+			<div class="text-center">
+				<p>Social</p>
+				<div class="row">
+					<ul class="nav navbar container col-lg-2 ">
+						<li class="nav-item"><a href="http://www.facebook.com"><i class="fa fa-facebook text-white"></i></a></li>
+						<li class="nav-item"><a href="http://www.twitter.com"><i class="fa fa-twitter text-white"></i></a></li>
+						<li class="nav-item"><a href="https://plus.google.com"><i class="fa fa-google-plus text-white"></i></a></li>
+					</ul>
+				</div>
 				<p>© 2020 All Rights Reserved. Powered by <a href="#">Reda FAHMI</a> exclusively for <a href="http://3wa.com">3wAcademy</a></p>
 			</div>
 			<div class="col-lg-2 text-primary">
-				<p>Social</p>
-				<ul class="row nav navbar social-footer">
-					<li><a href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
-					<li><a href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
-					<li><a href="https://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
-				</ul>
+
 			</div>
 		</div>
 	</div>

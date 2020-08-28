@@ -98,3 +98,12 @@ if (isset($_POST['submit-com'])) {
     Header("Location: single-article.php?id-article=" . $_POST['id_art']);
     exit();
 }
+
+//delete commentaire
+if (isset($_GET['com-del-id'])) {
+
+    $pdostat = $conn->prepare('DELETE FROM commentaire where id_art=:num LIMIT 1');
+    $pdostat->bindValue(':num', $_GET["com-del-id"], PDO::PARAM_INT);
+    $executeISOk = $pdostat->execute();
+    Header("Location: back-commentaires.php?id-article=" . $_GET["com-del-id"]);
+}

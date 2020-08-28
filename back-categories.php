@@ -24,6 +24,8 @@ $categories = $stmt->fetchAll();
                 <th scope="col">Image</th>
                 <th scope="col">Nom</th>
 
+
+
                 <th style="width:300px;" scope="text-center col">Action</th>
             </tr>
         </thead>
@@ -46,22 +48,25 @@ $categories = $stmt->fetchAll();
 
             </tr> -->
 
+
             <?php $i = 1;
             foreach ($categories as $categorie) :; ?>
+                <?php
+                $stmt2 = $conn->prepare('select count(id_art) as nb_art from article where id_cat=?');
+                $excuteIsOk = $stmt2->execute([$categorie['id_cat']]);
+                $art = $stmt2->fetch();
+
+                ?>
                 <tr>
                     <td><?= $i; ?></td>
                     <td style="width:100px;height:100px;"><img class="w-100 h-100" src="img/categorie/<?= $categorie['image'] ?>" alt=""></a></td>
-                    <td><?= $categorie['nom'] ?></td>
-
-
-
-
+                    <td><?= $categorie['nom'] . " (" . $art['nb_art'] . ")" ?></td>
                     <td>
                         <div>
                             <div>
-                                <a href="single-categorie.php?categorie-view-id=<?= $categorie['id_cat'] ?>" class="btn btn-primary col-md-3">View</a>
-                                <a href="update-categorie.php?categorie-update-id=<?= $categorie['id_cat'] ?>" class="btn btn-success col-md-3">Edit</a>
-                                <a href="traitement-categorie.php?categorie-del-id=<?= $categorie['id_cat'] ?>" class="btn btn-danger col-md-3">Delete</a>
+                                <a href="single-categorie.php?categorie-view-id=<?= $categorie['id_cat'] ?>" class="btn btn-primary col-md-3"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                <a href="update-categorie.php?categorie-update-id=<?= $categorie['id_cat'] ?>" class="btn btn-success col-md-3"> <i class="fa fa-wrench" aria-hidden="true"></i></a>
+                                <a href="traitement-categorie.php?categorie-del-id=<?= $categorie['id_cat'] ?>" class="btn btn-danger col-md-3"><i class="fa fa-trash mr-1" aria-hidden="true"></i></a>
 
                             </div>
                         </div>

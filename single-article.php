@@ -1,10 +1,6 @@
 <?php
 include 'demo.php';
-
-
-
 require 'connexion.php';
-
 
 $stmt = $conn->prepare('SELECT * FROM article,categorie,auteur where
  article.id_cat=categorie.id_cat AND 
@@ -26,7 +22,7 @@ $coments = $stmt2->fetchAll();
             <!-- Project Details Go Here -->
             <h2 class="text-uppercase "><?= $articles['title'] ?></h2>
             <div class="w-100">
-                <img style="height:400px;" class="img-fluid d-block mx-auto w-100 border" src="img/article/<?= $articles['image_art'] ?>" alt="">
+                <img style="" class="img-fluid d-block mx-auto w-100 border" src="img/article/<?= $articles['image_art'] ?>" alt="">
             </div>
             <p><?= $articles['contenu'] ?></p>
 
@@ -83,27 +79,11 @@ $coments = $stmt2->fetchAll();
             </div>
 
 
-
-
-            <a href="index-blog.php" class="btn btn-primary mr-2">Back</a><button type="submit" class="btn btn-success" name="submit-com">Valider</button>
+            <a href="<?= isset($_GET['from']) ? "back-articles.php" : "index-blog.php" ?>" class="btn btn-primary mr-2">Back</a><button type="submit" class="btn btn-success" name="submit-com">Valider</button>
         </form>
-
 
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- <div id="meta-post text-secondary">
             <span class="auth-meta">
                 <i class="fa fa-user"></i>
